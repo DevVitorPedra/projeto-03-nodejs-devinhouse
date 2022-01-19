@@ -1,14 +1,1 @@
-[
-    {"id":1,
-        "name": "vitor Pedra",
-        "e-mail": "vitor@pedra.com"
-      },
-    {"id":2,
-        "name": "Jubileu Gutfreund",
-        "e-mail": "jubileu@gutfreund.com"
-      },
-      {"id":3,
-        "name": "Saudoso Peçanha",
-        "e-mail": "saudoso@pecanha.com"
-      }
-]
+[{"id":1,"name":"vitor Pedra","email":"vitor@pedra.com"},{"id":2,"name":"Jubileu GutFreund","email":"jubileu@gutfreund.com"},{"id":3,"name":"Saudoso Peçanha","email":"saudoso@pecanha.com"},{"id":4,"name":"Jubileu GutFreund","email":"vitor@gmail.com"},{"id":6,"name":"Jubileau vacileiro","email":"vitor@gmail.com"},{"id":7,"name":"Jubileau vacileiro","email":"vitor@gmail.com"}]
