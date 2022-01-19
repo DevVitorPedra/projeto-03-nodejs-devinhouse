@@ -1,11 +1,11 @@
 {
-  "name": "projeto-03-nodejs-devinhouse",
+  "name": "projeto03",
   "version": "1.0.0",
   "description": "repositório do projeto de avalição 3,  primeiro projeto do módulo 2 de backend com NodeJS.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,9 @@
   "homepage": "https://github.com/DevVitorPedra/projeto-03-nodejs-devinhouse#readme",
   "dependencies": {
     "axios": "^0.25.0",
-    "express": "^4.17.2"
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "xlsx": "^0.17.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

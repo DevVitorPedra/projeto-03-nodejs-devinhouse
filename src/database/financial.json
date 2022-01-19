@@ -1,0 +1,23 @@
+[
+    {  "id": 1,
+        "userId": 1,
+        "financialData": [{
+          "id": 1,
+          "price": 99.99,
+          "typesOfExpenses": "groceries",
+          "date": "19/01/2022",
+          "name": "1 kg carne moída"
+        }]
+    },
+    {
+        "id": 2,
+        "userId": 2,
+        "financialData": [{
+          "id": 1,
+          "price": 19999.99,
+          "typesOfExpenses": "tech",
+          "date": "19/01/2022",
+          "name": "New graphics card"
+        }]
+    }
+]
