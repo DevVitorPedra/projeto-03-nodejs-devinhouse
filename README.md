@@ -55,8 +55,8 @@ Voce pode atualizar seu usuário pelo endpoint "/user/id" do PATCH passando seu 
 e no corpo da requisição devera conter o objeto com a informação a ser atualizada, 
 é necessário apenas a informação a ser atualizada.
 
-Para ver dados dos usuários utilize o endpoint "/user" do tipo GET para receber os 
-dados de todos os usuários
+Utilize o endpoint "/user/id" do tipo GET para receber os 
+dados de usuário
 ```
 ### Endpoint de finanças
 ```
@@ -72,7 +72,7 @@ caso esteja correto retorna todas as despesas do usuário.
 
 Utilize o endpoint "finance/userid/financeid" do tipo DELETE para deletar alguma despesa,
 caso algum dos id's sejam inexistentes retorna mensagem adequada, caso de sucesso retorna
-as despesa sem a que foi deletada.
+as despesa atuais.
 
 ```
 
