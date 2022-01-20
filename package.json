@@ -21,7 +21,9 @@
     "axios": "^0.25.0",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
-    "xlsx": "^0.17.5"
+    "multer": "^1.4.4",
+    "xlsx": "^0.17.5",
+    "xlsx-populate": "^1.21.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

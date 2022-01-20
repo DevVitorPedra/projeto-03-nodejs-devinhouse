@@ -18,10 +18,15 @@ function formatDate(date){
     const day = newDate.toLocaleString(newDate,options)
     return day
 }
+function findByUserId(userid, data){
+    const item = data.find((current)=> current.userId === Number(userid))
+    return item
+}
 module.exports = {
     getData,
     createOrUpdateData,
     findById,
+    findByUserId,
     formatDate
 }
 
