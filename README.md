@@ -14,13 +14,13 @@
 -[x] Database feita em JSON para finanças
 ### Endpoints
 #### Usuários
--[x] POST, Com todos os campos obrigatórios
--[x] PATCH, Com todos os campos obrigatórios, e validações necessárias
--[x] GET, que receba o id por params e retorne os dados do usuário ou mensagem adequada
+- [x] POST, Com todos os campos obrigatórios
+- [x] PATCH, Com todos os campos obrigatórios, e validações necessárias
+- [x] GET, que receba o id por params e retorne os dados do usuário ou mensagem adequada
 #### Financeiros
--[x] POST, com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência.
--[x] DELETE, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência.
--[x] GET, retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada.
+- [x] POST, com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência.
+- [x] DELETE, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência.
+- [x] GET, retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada.
 
 
 
