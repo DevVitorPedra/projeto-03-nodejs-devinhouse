@@ -1,7 +1,7 @@
 const { create } = require('domain')
 const fileSystem = require('fs')
 const xlsx = require('xlsx-populate')
-const { getData, createOrUpdateData, findByUserId } = require('../services/services')
+const { getData, createOrUpdateData, findByUserId, translateMonth } = require('../services/services')
 
 module.exports = {
     async createDataByXlsxFile(req, res) {
@@ -10,7 +10,10 @@ module.exports = {
         const userExists = financesJson.filter((item) => item.userId === Number(userid))
         try {
             if (userExists == '') throw new Error(userExists)
-            const financesLastId = financesJson[0].financialData[financesJson[0].financialData.length - 1].id
+            let financesLastId = 0
+            if(!financesJson[userid-1].financialData[financesJson[0].financialData.length - 1]){
+            financesLastId = 0
+            }else financesLastId =  financesJson[0].financialData[financesJson[0].financialData.length - 1].id
             const fileData = await xlsx.fromDataAsync(req.file.buffer)
             const rows = fileData.sheet(0).usedRange().value()
             const [firstRow] = rows
@@ -81,18 +84,52 @@ module.exports = {
     },
     async totalexpenses(req,res){
         const { userid } = req.params
+        const { bymonth, expenses } = req.query
         let financesJson = getData('financial.json')
        try {
         const userExists = financesJson.filter((item) => item.userId === Number(userid))
         if (userExists == '') throw new Error("Usuário inexistente")
-       
-        let fullBill = 0
+        if(userExists[0].financialData.length===0) throw new Error("Nenhuma despesa registrada")
+        let fullBill = {
+                allExpenses:0,
+                byMonth:{
+
+                },
+             
+        }
+        
+        console.log(expenses)
+        if(expenses!==undefined){
+            userExists[0].financialData.forEach(item=>{
+                
+               console.log(item)
+            })
+        }
+        
          userExists[0].financialData.forEach(item=>{
-            fullBill += item.price
+            const d = new Date(item.date)
+            const month = translateMonth(d.getMonth())
+            if(fullBill.byMonth.hasOwnProperty(month)){
+                fullBill.allExpenses += item.price
+               fullBill.byMonth[month] += item.price
+            }else{
+                fullBill.allExpenses += item.price
+                Object.assign(fullBill.byMonth,{[month]:item.price})
+            }
         });
+        if(bymonth) {
+            const filtered = {[bymonth]:fullBill.byMonth[bymonth]}
+            console.log(filtered)
+            if(!filtered[bymonth]) throw new Error("Nenhum despesa com esse filtro/Mês escrito errado")
+           
+           return res.status(200).send({message:filtered})
+        }
+        if(expenses){
+            const filtered = {}
+        }
         res.status(200).send({message:fullBill})
        } catch (error) {
-           
+           res.status(400).send({message:error.message})
        }
     }
 }

@@ -1,1 +1,84 @@
-[{"id":1,"userId":1,"financialData":[{"id":1,"price":99.99,"typeofexpenses":"market","date":"2022-01-19T03:00:00.000Z"},{"id":2,"price":99.99,"typeofexpenses":"groceries","date":"2022-09-13T03:00:00.000Z","name":"banane"},{"id":3,"price":13.9,"typeofexpenses":"market","date":"2022-01-19T03:00:00.000Z","name":"cachaça"}]},{"id":1,"userId":2,"financialData":[{"id":5,"price":13.9,"typeofexpenses":"market","date":"2022-01-19T03:00:00.000Z","name":"cachaça"},{"id":7,"price":20,"typeofexpenses":"market","date":"2022-01-19T03:00:00.000Z","name":"cachaça"},{"id":8,"price":99.99,"typeofexpenses":"groceries","date":"2022-09-13T03:00:00.000Z","name":"banane"},{"id":9,"price":90,"typeofexpenses":"market","date":"2022-01-19T03:00:00.000Z","name":"cachaça"}]}]
+[
+    {
+        "id": 1,
+        "userId": 1,
+        "financialData": [
+            {
+                "id": 1,
+                "price": 99.99,
+                "typeofexpenses": "groceries",
+                "date": "2022-09-13T03:00:00.000Z",
+                "name": "banane"
+            },
+            {
+                "id": 2,
+                "price": 13.9,
+                "typeofexpenses": "market",
+                "date": "2022-01-19T03:00:00.000Z",
+                "name": "cachaça"
+            },
+            {
+                "id": 3,
+                "price": 50.4,
+                "typeofexpenses": "market",
+                "date": "2022-10-19T03:00:00.000Z",
+                "name": "vinho"
+            },
+            {
+                "id": 4,
+                "price": 50.4,
+                "typeofexpenses": "market",
+                "date": "2022-02-12T03:00:00.000Z",
+                "name": "vinho"
+            },
+            {
+                "id": 5,
+                "price": 50.4,
+                "typeofexpenses": "market",
+                "date": "2022-10-19T03:00:00.000Z",
+                "name": "vinho"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "userId": 2,
+        "financialData": [
+            {
+                "id": 1,
+                "price": 99.99,
+                "typeofexpenses": "groceries",
+                "date": "2022-09-13T03:00:00.000Z",
+                "name": "banane"
+            },
+            {
+                "id": 2,
+                "price": 13.9,
+                "typeofexpenses": "market",
+                "date": "2022-01-19T03:00:00.000Z",
+                "name": "cachaça"
+            },
+            {
+                "id": 3,
+                "price": 50.4,
+                "typeofexpenses": "market",
+                "date": "2022-10-19T03:00:00.000Z",
+                "name": "vinho"
+            },
+            {
+                "id": 4,
+                "price": 50.4,
+                "typeofexpenses": "market",
+                "date": "2022-02-12T03:00:00.000Z",
+                "name": "vinho"
+            },
+            {
+                "id": 5,
+                "price": 50.4,
+                "typeofexpenses": "market",
+                "date": "2022-10-19T03:00:00.000Z",
+                "name": "vinho"
+            }
+        ]
+    }
+]
