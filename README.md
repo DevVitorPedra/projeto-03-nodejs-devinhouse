@@ -80,6 +80,6 @@ Utilize o endpoint "finance/userid/financeid" do tipo DELETE para deletar alguma
 ## 🤝 Objetivo:
 
 ```
-Com Objetivo educacional, a ideia era criar uma aplicação utilizando os conceitos de ReactJS,
-aprendidos  nas ultimas duas semanas do curso DEVinHouse!!!
+Com Objetivo educacional, a ideia é desenvolver uma 
+API REST, para trabalhar a manipulação de arquivos estáticos, recebimento de arquivos por requisição http, trabalhar os retornos corretos para o usuário e tratar os erros e documentar utilizando Swagger 
 ```
