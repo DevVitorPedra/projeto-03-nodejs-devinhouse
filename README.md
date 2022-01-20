@@ -2,8 +2,8 @@
 # DEVinBank Pagamentos S/A
 ## Projeto 1 do modulo NodeJS do DEVinHouse
 > Projeto visa a criação de uma RESTful API, para manipulação de arquivos estáticos 
-> criação de dados em massa através da leitura de arquivo xlsx(excel)
-> calculo de de informações de acordo com filtros, como mês e tipo de gasto
+> criação de dados em massa através da leitura de arquivo xlsx(excel),
+> calculo de informações de acordo com filtros, como mês e tipo de gastos
 
 # Conta365
 ### Requisitos de desenvolvimento
@@ -14,13 +14,20 @@
 - [x] Database feita em JSON para finanças
 ### Endpoints
 #### Usuários
-- [x] POST, Com todos os campos obrigatórios
-- [x] PATCH, Com todos os campos obrigatórios, e validações necessárias
-- [x] GET, que receba o id por params e retorne os dados do usuário ou mensagem adequada
+
+- [x] POST,"/users", com todos os campos obrigatórios, sendo os campos nome e email.
+
+- [x] PATCH,"/users/id", altera uma informação, ou ambas
+
+- [x] GET,"/users/id", que receba o id por params e retorne os dados do usuário ou mensagem adequada
+
 #### Financeiros
-- [x] POST, com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência.
-- [x] DELETE, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência.
-- [x] GET, retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada.
+
+- [x] POST,"/finance/userid", com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência. userid obrigatório
+
+- [x] DELETE,"/finance/userid/financeid, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência. userid e financeid obrigatórios
+
+- [x] GET, "/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
 
 
 
