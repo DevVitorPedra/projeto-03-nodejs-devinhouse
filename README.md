@@ -36,25 +36,36 @@ Para usar:
 
 ### Endpoint de usuários
 ```
-Utilize o endpoint "/user" do tipo POST  para criar seu usuário, no corpo da requisição deve haver um objeto com o seguinte formato:
+Utilize o endpoint "/user" do tipo POST  para criar seu usuário, no corpo da requisição deve
+ haver um objeto com o seguinte formato:
 { "nome":"seu nome aqui",
   "email":seuemail@nesseformato.com"}
-Seu nome não deve conter números e nem caracteres especiais, e o email deve ser no formato orientado,
+Seu nome não deve conter números e nem caracteres especiais, e o email deve ser no formato
+ orientado,
 caso tenha alguma informação incorreta, recebera uma mensagem de erro.
 
-Voce pode atualizar seu usuário pelo endpoint "/user/id" do PATCH passando seu id, e no corpo da requisição devera conter o objeto com a informação a ser atualizada, é necessário apenas a informação a ser atualizada.
+Voce pode atualizar seu usuário pelo endpoint "/user/id" do PATCH passando seu id, 
+e no corpo da requisição devera conter o objeto com a informação a ser atualizada, 
+é necessário apenas a informação a ser atualizada.
 
-Para ver dados dos usuários utilize o endpoint "/user" do tipo GET para receber os dados de todos os usuários
+Para ver dados dos usuários utilize o endpoint "/user" do tipo GET para receber os 
+dados de todos os usuários
 ```
 ### Endpoint de finanças
 ```
-Utilize o endpoint "/finance/userid" do tipo GET para receber todas as despesas do usuário selecionado, retornará uma mensagem com os gastos ou mensagem adequada
+Utilize o endpoint "/finance/userid" do tipo GET para receber todas as despesas
+do usuário selecionado, retornará uma mensagem com os gastos ou mensagem adequada
 
-Utilize o endpoint "/finance/userid" do tipo POST para passar o arquivo excel com os gastos feitos,
-o arquivo deve conter as colunas price, typeofexpenses, date, e name, onde cada um representa respectivamente o preço gasto, o tipo de gasto, quando foi gasto e qual o nome do pagamento.
-Todos os campos são obrigatórios, em caso de divergência retornará mensagem adequada, caso esteja correto retorna todas as despesas do usuário.
+Utilize o endpoint "/finance/userid" do tipo POST para passar o arquivo excel
+com os gastos feitos,o arquivo deve conter as colunas price, typeofexpenses, date, e name,
+onde cada um representa respectivamente o preço gasto, o tipo de gasto, quando foi gasto e
+qual o nome do pagamento.
+Todos os campos são obrigatórios, em caso de divergência retornará mensagem adequada,
+caso esteja correto retorna todas as despesas do usuário.
 
-Utilize o endpoint "finance/userid/financeid" do tipo DELETE para deletar alguma despesa, caso algum dos id's sejam inexistentes retorna mensagem adequada, caso de sucesso retorna as despesa sem a que foi deletada.
+Utilize o endpoint "finance/userid/financeid" do tipo DELETE para deletar alguma despesa,
+caso algum dos id's sejam inexistentes retorna mensagem adequada, caso de sucesso retorna
+as despesa sem a que foi deletada.
 
 ```
 
