@@ -95,16 +95,25 @@ module.exports = {
                 byMonth:{
 
                 },
+                expensesByType:{
+
+                }
              
         }
+         
         
-        console.log(expenses)
-        if(expenses!==undefined){
+   
             userExists[0].financialData.forEach(item=>{
                 
-               console.log(item)
+                   if(fullBill.expensesByType.hasOwnProperty(item.typeofexpenses)){
+                   
+                    fullBill.expensesByType[item.typeofexpenses] += item.price
+                   }else{
+                  
+                       Object.assign(fullBill.expensesByType,{[item.typeofexpenses]:item.price})
+                   }
             })
-        }
+        
         
          userExists[0].financialData.forEach(item=>{
             const d = new Date(item.date)
@@ -125,7 +134,8 @@ module.exports = {
            return res.status(200).send({message:filtered})
         }
         if(expenses){
-            const filtered = {}
+            const filtered = {[expenses]:fullBill.expensesByType[expenses]}
+            return res.status(200).send({message:filtered})
         }
         res.status(200).send({message:fullBill})
        } catch (error) {
