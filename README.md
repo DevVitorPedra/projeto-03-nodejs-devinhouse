@@ -92,5 +92,7 @@ as despesa sem a que foi deletada.
 
 ```
 Com Objetivo educacional, a ideia é desenvolver uma 
-API REST, para trabalhar a manipulação de arquivos estáticos, recebimento de arquivos por requisição http, trabalhar os retornos corretos para o usuário e tratar os erros e documentar utilizando Swagger 
+API REST, para trabalhar a manipulação de arquivos estáticos,
+recebimento de arquivos por requisição http, trabalhar os retornos corretos para o usuário
+e tratar os erros e documentar utilizando Swagger 
 ```
