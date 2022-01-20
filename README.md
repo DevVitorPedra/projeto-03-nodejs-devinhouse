@@ -7,11 +7,11 @@
 
 # Conta365
 ### Requisitos de desenvolvimento
--[x] Aplicação com Node e Express
--[ ] Utilizar Swagger para documentação dos endpoints
--[x] A aplicação deverá conter um sistema de rotas organizadas por versões
--[x] Database feita em JSON para usuários
--[x] Database feita em JSON para finanças
+- [x] Aplicação com Node e Express
+- [ ] Utilizar Swagger para documentação dos endpoints
+- [x] A aplicação deverá conter um sistema de rotas organizadas por versões
+- [x] Database feita em JSON para usuários
+- [x] Database feita em JSON para finanças
 ### Endpoints
 #### Usuários
 - [x] POST, Com todos os campos obrigatórios
