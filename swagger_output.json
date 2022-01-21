@@ -16,8 +16,8 @@
         "tags": [
           "finanças"
         ],
-        "summary": "Envio de dados através de arquivo xlsx",
-        "description": "Insira todos os dados de uma tabela excel em um usuário específico. A tabela deve conter os campos price, typeofexpenses, date e name. Nenhum campo pode estar vazio, ou retornará um erro.",
+        "summary": "Cria uma conta365 e adiciona as finanças através dos dados do arquivo xlsx",
+        "description": "Insira todos os dados de uma tabela excel em um usuário específico. A tabela deve conter os campos price, typeofexpenses, date e name. Nenhum campo pode estar vazio, ou retornará um erro.Caso o usuário existe mas não tenha registro de finanças será criado e inserido os dados do xlsx",
         "consumes": [
           "multipart/form-data"
         ],
@@ -51,7 +51,7 @@
           "finanças"
         ],
         "summary": "Retorna as despesas com base no userid e queries",
-        "description": "Utilize o userid, para retornar as despesas do usuário, podendo usar uma query ou outra para retornar por mês ou por tipo",
+        "description": "Utilize o userid, para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês ou por tipo, se as duas queries estiverem preenchidas retornará apenas por mês.",
         "parameters": [
           {
             "name": "userid",
@@ -85,8 +85,8 @@
         "tags": [
           "finanças"
         ],
-        "summary": "Deleta uma despesa apartir do userid e financeid",
-        "description": "Deleta uma despesa com o id = financeid do usuário = userid",
+        "summary": "Deleta uma despesa do usuário",
+        "description": "Utilize o userid para especificar o usuário e o financeid para escolher a despesa a ser apagada. Retorna o usuário sem a despesa deletada",
         "parameters": [
           {
             "name": "userid",
@@ -110,7 +110,7 @@
           "Usuários"
         ],
         "summary": "Retorna os dados de um usuário",
-        "description": "Utilize o id, para retornar o nome e o email do usuário",
+        "description": "Utilize o id para retornar o nome e o email do usuário",
         "parameters": [
           {
             "name": "id",
@@ -133,7 +133,7 @@
           "Usuários"
         ],
         "summary": "Atualiza os dados do usuário",
-        "description": "Atualiza o usuário com o id indicado, o body deve conter o seguinte objeto{\"name\":\"seu nome aqui\",\"email\":\"seuemail@nesseformato.com\"}, valores incorretos geram erro, chaves erradas não são atualizadas",
+        "description": "Atualiza o usuário com o id indicado, o body deve conter o seguinte objeto{\"name\":\"seu nome aqui\", e/ou \"email\":\"seuemail@nesseformato.com\"}, valores incorretos geram erro, chaves erradas não são atualizadas",
         "parameters": [
           {
             "name": "id",
@@ -173,7 +173,7 @@
           "Usuários"
         ],
         "summary": "Cria um usuário",
-        "description": "cria um usuário com id automático, o body deve conter o seguinte objeto{\"name\":\"Apenas Letras\",\"email\":\"seuemail@nesseformato.com.\"}, chaves e valores incorretos geram erros",
+        "description": "cria um usuário com id gerado automáticamente, o body deve conter o seguinte objeto{\"name\":\"Apenas Letras\",\"email\":\"seuemail@nesseformato.com.\"}, chaves e valores incorretos geram erros",
         "parameters": [
           {
             "name": "body",

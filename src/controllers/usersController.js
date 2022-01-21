@@ -16,7 +16,7 @@ module.exports = {
     async getUserById(req,res) {
         //#swagger.tags = ["Usuários"]
        // #swagger.summary = 'Retorna os dados de um usuário'
-       // #swagger.description = 'Utilize o id, para retornar o nome e o email do usuário'
+       // #swagger.description = 'Utilize o id para retornar o nome e o email do usuário'
         const { id } = req.params
         const usersData = getData('users.json')
         try {
@@ -29,9 +29,9 @@ module.exports = {
         }
     },
     async updateUser(req,res){
-                //#swagger.tags = ["Usuários"]
+       // #swagger.tags = ["Usuários"]
        // #swagger.summary = 'Atualiza os dados do usuário'
-       // #swagger.description = 'Atualiza o usuário com o id indicado, o body deve conter o seguinte objeto{"name":"seu nome aqui","email":"seuemail@nesseformato.com"}, valores incorretos geram erro, chaves erradas não são atualizadas'
+       // #swagger.description = 'Atualiza o usuário com o id indicado, o body deve conter o seguinte objeto{"name":"seu nome aqui", e/ou "email":"seuemail@nesseformato.com"}, valores incorretos geram erro, chaves erradas não são atualizadas'
         const { id } = req.params
         const usersData = getData('users.json')
         const { name, email } = req.body
@@ -45,19 +45,20 @@ module.exports = {
             if(email){
                 if((!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))) throw new Error('Formato de email invalido')
             }
-                const singleUser = usersData.find((item)=>item.id===Number(id))
+                let singleUser = usersData.find((item)=>item.id===Number(id))
                 if(!singleUser) throw new Error('Id inexistente!')
-                let updated
+               
                 if(name){
-                    updated = { ...singleUser,...{"name":name}}
+                    console.log(name)
+                    singleUser = { ...singleUser,...{"name":name}}
                 }
                 if(email){
-                    updated = { ...singleUser,...{"email":email}}
+                    singleUser = { ...singleUser,...{"email":email}}
                 }
                 
                 const updateDatabase = usersData.map((item)=>{
                     if(item.id===Number(id)){
-                        return updated
+                        return singleUser
                     }
                     return item
                 })
@@ -68,9 +69,9 @@ module.exports = {
         }
     },
     async createUser(req,res){
-                //#swagger.tags = ["Usuários"]
+       // #swagger.tags = ["Usuários"]
        // #swagger.summary = 'Cria um usuário'
-       // #swagger.description = 'cria um usuário com id automático, o body deve conter o seguinte objeto{"name":"Apenas Letras","email":"seuemail@nesseformato.com."}, chaves e valores incorretos geram erros'
+       // #swagger.description = 'cria um usuário com id gerado automáticamente, o body deve conter o seguinte objeto{"name":"Apenas Letras","email":"seuemail@nesseformato.com."}, chaves e valores incorretos geram erros'
         const { name, email } = req.body
         if(!name || !email) return res.status(400).send({message:"Não deve existir campos em branco"})
         try {
