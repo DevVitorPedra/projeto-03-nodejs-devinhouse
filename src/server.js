@@ -1,17 +1,12 @@
 const express = require('express'); 
+const routes = require('./routes');
 const app = express()
 const dotenv = require('dotenv').config()
 const port = process.env.PORT || 5000
-
-
+const swaggerUI = require('swagger-ui-express')
+const swaggerFile = require('../swagger_output.json')
 app.use(express.json())
+app.use(routes)
+app.use('/docs',swaggerUI.serve, swaggerUI.setup(swaggerFile))
 
-const financialRoutes = require('./routes/v1/financial.routes')
-app.use(financialRoutes)
-
-const usersRoutes = require('./routes/v1/users.routes')
-app.use(usersRoutes)
-
-
-app.get('/',(req,res)=>res.send('Damn, my boy!!!'))
 app.listen(port,()=>console.log('Executando na rota ',port))

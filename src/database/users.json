@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "name": "vitor Pedra",
-        "email": "vitor@pedra.com"
+        "name": "Saudoso Peçanha",
+        "email": "any@jobs.com"
     },
     {
         "id": 2,
@@ -28,5 +28,10 @@
         "id": 7,
         "name": "Jubileau vacileiro",
         "email": "vitor@gmail.com"
+    },
+    {
+        "id": 8,
+        "name": "Vitor Pedra",
+        "email": "vitor@pedra.com"
     }
 ]

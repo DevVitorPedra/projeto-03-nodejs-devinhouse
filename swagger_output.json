@@ -1,0 +1,205 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "DEVinBank",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/finance/{userid}": {
+      "post": {
+        "tags": [
+          "finanças"
+        ],
+        "summary": "Envio de dados através de arquivo xlsx",
+        "description": "Insira todos os dados de uma tabela excel em um usuário específico. A tabela deve conter os campos price, typeofexpenses, date e name. Nenhum campo pode estar vazio, ou retornará um erro.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Arquivo xlsx(excel)",
+            "accept": "/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "finanças"
+        ],
+        "summary": "Retorna as despesas com base no userid e queries",
+        "description": "Utilize o userid, para retornar as despesas do usuário, podendo usar uma query ou outra para retornar por mês ou por tipo",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bymonth",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "expenses",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/finance/{userid}/{financeid}": {
+      "delete": {
+        "tags": [
+          "finanças"
+        ],
+        "summary": "Deleta uma despesa apartir do userid e financeid",
+        "description": "Deleta uma despesa com o id = financeid do usuário = userid",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "financeid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Retorna os dados de um usuário",
+        "description": "Utilize o id, para retornar o nome e o email do usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Atualiza os dados do usuário",
+        "description": "Atualiza o usuário com o id indicado, o body deve conter o seguinte objeto{\"name\":\"seu nome aqui\",\"email\":\"seuemail@nesseformato.com\"}, valores incorretos geram erro, chaves erradas não são atualizadas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Cria um usuário",
+        "description": "cria um usuário com id automático, o body deve conter o seguinte objeto{\"name\":\"Apenas Letras\",\"email\":\"seuemail@nesseformato.com.\"}, chaves e valores incorretos geram erros",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
