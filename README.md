@@ -16,7 +16,7 @@
 ### Endpoints
 #### Usuários
 
-- [x] POST,"/users", com todos os campos obrigatórios, sendo os campos nome e email.
+- [x] POST,"api/users", com todos os campos obrigatórios, sendo os campos nome e email.
 
 - [x] PATCH,"api/users/id", altera uma informação, ou ambas
 
