@@ -17,17 +17,17 @@
 
 - [x] POST,"/users", com todos os campos obrigatórios, sendo os campos nome e email.
 
-- [x] PATCH,"/users/id", altera uma informação, ou ambas
+- [x] PATCH,"api/users/id", altera uma informação, ou ambas
 
-- [x] GET,"/users/id", que receba o id por params e retorne os dados do usuário ou mensagem adequada
+- [x] GET,"api/users/id", que receba o id por params e retorne os dados do usuário ou mensagem adequada
 
 #### Financeiros
 
-- [x] POST,"/finance/userid", com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência. userid obrigatório
+- [x] POST,"api/finance/userid", com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência. userid obrigatório
 
-- [x] DELETE,"/finance/userid/financeid, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência. userid e financeid obrigatórios
+- [x] DELETE,"api/finance/userid/financeid, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência. userid e financeid obrigatórios
 
-- [x] GET, "/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
+- [x] GET, "api/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
 
 
 
@@ -43,7 +43,7 @@ Para usar:
 
 ### Endpoint de usuários
 ```
-Utilize o endpoint "/user" do tipo POST  para criar seu usuário, no corpo da requisição deve
+Utilize o endpoint "api/user" do tipo POST  para criar seu usuário, no corpo da requisição deve
 haver um objeto com o seguinte formato:
 { "nome":"seu nome aqui",
   "email":seuemail@nesseformato.com"}
@@ -51,26 +51,26 @@ Seu nome não deve conter números e nem caracteres especiais, e o email deve se
 orientado,
 caso tenha alguma informação incorreta, recebera uma mensagem de erro adequada.
 
-Voce pode atualizar seu usuário pelo endpoint "/user/id" do PATCH passando seu id, 
+Voce pode atualizar seu usuário pelo endpoint "api/user/id" do PATCH passando seu id, 
 e no corpo da requisição devera conter o objeto com a informação a ser atualizada, 
 é necessário apenas a informação a ser atualizada.
 
-Utilize o endpoint "/user/id" do tipo GET para receber os 
+Utilize o endpoint "api/user/id" do tipo GET para receber os 
 dados de usuário
 ```
 ### Endpoint de finanças
 ```
-Utilize o endpoint "/finance/userid" do tipo GET para receber todas as despesas
+Utilize o endpoint "api/finance/userid" do tipo GET para receber todas as despesas
 do usuário selecionado, existem duas possíveis queries, bymonth para retornar o valor total do mes solicitado, e expenses que retorna o valor total do tipo de despesa, retornará uma mensagem com os gastos ou mensagem de erro adequada
 
-Utilize o endpoint "/finance/userid" do tipo POST para passar o arquivo excel
+Utilize o endpoint "api/finance/userid" do tipo POST para passar o arquivo excel
 com os gastos feitos,o arquivo deve conter as colunas price, typeofexpenses, date, e name,
 onde cada um representa respectivamente o preço gasto, o tipo de gasto, quando foi gasto e
 qual o nome do item.
 Todos os campos são obrigatórios, em caso de divergência retornará mensagem de erro adequada,
 caso esteja correto retorna todas as despesas do usuário.
 
-Utilize o endpoint "finance/userid/financeid" do tipo DELETE para deletar alguma despesa,
+Utilize o endpoint "api/finance/userid/financeid" do tipo DELETE para deletar alguma despesa,
 caso algum dos id's sejam inexistentes retorna mensagem de erro adequada, caso de sucesso retorna
 as despesa atuais.
 
