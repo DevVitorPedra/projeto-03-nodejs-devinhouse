@@ -16,19 +16,19 @@
 ### Endpoints
 #### Usuários
 
-- [x] POST,"api/users", com todos os campos obrigatórios, sendo os campos nome e email.
+- [x] POST,  "api/users", com todos os campos obrigatórios, sendo os campos nome e email.
 
-- [x] PATCH,"api/users/id", altera uma informação, ou ambas
+- [x] PATCH, "api/users/id", altera uma informação, ou ambas
 
-- [x] GET,"api/users/id", que receba o id por params e retorne os dados do usuário ou mensagem adequada
+- [x] GET,   "api/users/id", que receba o id por params e retorne os dados do usuário ou mensagem adequada
 
 #### Financeiros
 
-- [x] POST,"api/finance/userid", com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência. userid obrigatório
+- [x] POST,   "api/finance/userid", com Id do usuário por params, que recebera um arquivo xlsx, devendo conter os campos(price,typeofexpenses, date, name), com todos os campos obrigatórios, retorna mensagens adequadas em caso de divergência. userid obrigatório
 
-- [x] DELETE,"api/finance/userid/financeid, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência. userid e financeid obrigatórios
+- [x] DELETE, "api/finance/userid/financeid, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência. userid e financeid obrigatórios
 
-- [x] GET, "api/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
+- [x] GET,    "api/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
 
 
 
