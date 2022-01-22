@@ -28,7 +28,7 @@
 
 - [x] DELETE, "api/finance/userid/financeid, deleta uma despesa baseada no id do usuário e id da despesa, ambos passados por params, retorna mensagem adequada em caso de divergência. userid e financeid obrigatórios
 
-- [x] GET,    "api/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonth" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
+- [x] GET,    "api/finance/userid" retorna as despesas do usuário, no qual o id foi passado por params, no mesmo endpoint pode ser passado queries como "bymonthyear" e "expenses" para filtrar respectivamente por mês e por tipo de despesa, em caso de divergência retorna mensagem adequada. userid obrigatório.
 
 
 
