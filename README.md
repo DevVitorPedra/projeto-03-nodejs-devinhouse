@@ -1,5 +1,5 @@
 # {VSP}
-<h1 style="color:blue">DEVinBank Pagamentos S/A</h1>;
+# DEVinBank Pagamentos S/A
 
 ## Projeto 1 do modulo NodeJS do DEVinHouse
 > Projeto visa a criação de uma RESTful API, para manipulação de arquivos estáticos 
