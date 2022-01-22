@@ -159,6 +159,7 @@ module.exports = {
             }
             if (expenses) {
                 const filtered = { [expenses]: fullBill.expensesByType[expenses] }
+                if(!filtered[expenses]) throw new Error("Nenhuma despesa com este tipo")
                 return res.status(200).send({ message: filtered })
             }
             res.status(200).send({ message: fullBill })
