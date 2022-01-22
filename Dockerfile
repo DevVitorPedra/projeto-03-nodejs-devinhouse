@@ -1,11 +1,13 @@
 FROM node:16.8-alpine
 
-WORKDIR /user/app
+WORKDIR /usr/app
+
 COPY package.json package-lock.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 3333
+
 CMD [ "npm","start" ]

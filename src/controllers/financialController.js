@@ -1,5 +1,3 @@
-const { create } = require('domain')
-const fileSystem = require('fs')
 const xlsx = require('xlsx-populate')
 const { getData, createOrUpdateData, findByUserId, translateMonth } = require('../services/services')
 

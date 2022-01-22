@@ -4,5 +4,5 @@ services:
   app:
     build: .
     ports:
-      - "5000:5000"
+      - "3333:3333"
     command: npm start
