@@ -44,8 +44,8 @@ Para usar:
 
 ### Endpoint de usuários
 ```
-Utilize o endpoint "api/user" do tipo POST  para criar seu usuário, no corpo da requisição deve
-haver um objeto com o seguinte formato:
+Utilize o endpoint "api/user" do tipo POST  para criar seu usuário, no corpo da requisição 
+deve haver um objeto com o seguinte formato:
 { "nome":"seu nome aqui",
   "email":seuemail@nesseformato.com"}
 Seu nome não deve conter números e nem caracteres especiais, e o email deve ser no formato
