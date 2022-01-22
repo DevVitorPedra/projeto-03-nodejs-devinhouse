@@ -63,9 +63,9 @@ dados de usuário
 ### Endpoint de finanças
 ```
 Utilize o endpoint "api/finance/userid" do tipo GET para receber todas as despesas
-do usuário selecionado, existem duas possíveis queries, bymonth para retornar o valor total do mes
-solicitado, e expenses que retorna o valor total do tipo de despesa, retornará uma mensagem com os
-gastos ou mensagem de erro adequada
+do usuário selecionado, existem duas possíveis queries, bymonth para retornar o valor total
+do mês solicitado, e expenses que retorna o valor total do tipo de despesa, não podendo ser combinadas,
+retornará uma mensagem com os gastos ou mensagem de erro adequada
 
 Utilize o endpoint "api/finance/userid" do tipo POST para passar o arquivo excel
 com os gastos feitos,o arquivo deve conter as colunas price, typeofexpenses, date, e name,
