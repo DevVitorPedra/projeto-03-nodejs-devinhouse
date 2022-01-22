@@ -118,9 +118,9 @@ module.exports = {
     async totalexpenses(req, res) {
         //#swagger.tags = ["finanças"]
        // #swagger.summary = 'Retorna as despesas com base no userid e queries'
-       // #swagger.description = 'Utilize o userid, para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês ou por tipo, se as duas queries estiverem preenchidas retornará apenas por mês.'
+       // #swagger.description = 'Utilize o userid, para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.'
         const { userid } = req.params
-        const { bymonth, expenses } = req.query
+        const { bymonthyear, expenses } = req.query
         let financesJson = getData('financial.json')
         try {
             const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
@@ -128,7 +128,7 @@ module.exports = {
             if (userFinanceExists[0].financialData.length === 0) throw new Error("Nenhuma despesa registrada")
             let fullBill = {
                 allExpenses: 0,
-                byMonth: {},
+                byMonthYear: {},
                 expensesByType: {}
             }
             userFinanceExists[0].financialData.forEach(item => {
@@ -142,18 +142,18 @@ module.exports = {
             userFinanceExists[0].financialData.forEach(item => {
                 const d = new Date(item.date)
                 const month = translateMonth(d.getMonth())
-                if (fullBill.byMonth.hasOwnProperty(month)) {
+                if (fullBill.byMonthYear.hasOwnProperty(month+"/"+d.getFullYear())) {
                     fullBill.allExpenses += item.price
-                    fullBill.byMonth[month] += item.price
+                    fullBill.byMonthYear[month+"/"+d.getFullYear()] += item.price
                 } else {
                     fullBill.allExpenses += item.price
-                    Object.assign(fullBill.byMonth, { [month]: item.price })
+                    Object.assign(fullBill.byMonthYear, { [month+"/"+d.getFullYear()]: item.price })
                 }
             });
-            if (bymonth) {
-                const filtered = { [bymonth]: fullBill.byMonth[bymonth.toLowerCase()] }
+            if (bymonthyear) {
+                const filtered = { [bymonthyear]: fullBill.byMonthYear[bymonthyear.toLowerCase()] }
                 console.log(filtered)
-                if (!filtered[bymonth]) throw new Error("Nenhum despesa com esse filtro/Mês escrito errado")
+                if (!filtered[bymonthyear]) throw new Error("Nenhum despesa com esse filtro/Mês escrito errado")
 
                 return res.status(200).send({ message: filtered })
             }
