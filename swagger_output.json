@@ -2,13 +2,13 @@
   "swagger": "2.0",
   "info": {
     "title": "DEVinBank",
-    "description": "Description",
+    "description": "Projeto Conta365, tem a finalidade de avaliar o conhecimento em NodeJS atráves da criação de APIs, manipulação de arquivos e capacidade de elaboração de soluções para problemas, e também criação de documentações. Esta API foi desenvolvida por Vitor dos Santos Pedra",
     "version": "1.0.0"
   },
-  "host": "localhost:3333",
+  "host": "warm-inlet-55774.herokuapp.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api/finance/{userid}": {
@@ -201,5 +201,8 @@
         }
       }
     }
-  }
+  },
+  "default": [
+    "https"
+  ]
 }

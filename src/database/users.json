@@ -1,42 +1,17 @@
 [
     {
         "id": 1,
-        "name": "Fat Tony",
-        "email": "Fat@tony.com"
+        "name": "Linus Torvalds",
+        "email": "linus@torvalds.lnx"
     },
     {
         "id": 2,
-        "name": "Fat Tony",
-        "email": "Fat@tony.com"
+        "name": "Ada Lovelace",
+        "email": "ada@lovelace.cod"
     },
     {
         "id": 3,
-        "name": "Saudoso Peçanha",
-        "email": "saudoso@pecanha.com"
-    },
-    {
-        "id": 4,
-        "name": "Jubileu GutFreund",
-        "email": "vitor@gmail.com"
-    },
-    {
-        "id": 6,
-        "name": "Jubileau vacileiro",
-        "email": "vitor@gmail.com"
-    },
-    {
-        "id": 7,
-        "name": "Jubileau vacileiro",
-        "email": "vitor@gmail.com"
-    },
-    {
-        "id": 8,
-        "name": "Vitor Pedra",
-        "email": "vitor@pedra.com"
-    },
-    {
-        "id": 9,
-        "name": "Ben Dover",
-        "email": "Ben@Dover.com"
+        "name": "Aho Corasick",
+        "email": "aho@corasick.alg"
     }
 ]

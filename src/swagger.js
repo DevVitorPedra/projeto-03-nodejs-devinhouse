@@ -1,14 +1,16 @@
 const swaggerAutogen = require('swagger-autogen')()
 
-const endpoints = ['./src/server.js']
+const endpoints = ['./index.js']
 
 const doc = {
     info: {
       title: 'DEVinBank',
-      description: 'Description',
+      description: 'Projeto Conta365, tem a finalidade de avaliar o conhecimento em NodeJS atráves da criação de APIs, manipulação de arquivos e capacidade de elaboração de soluções para problemas, e também criação de documentações. Esta API foi desenvolvida por Vitor dos Santos Pedra',
     },
-    host: 'localhost:3333',
-    schemes: ['http'],
+    host: 'warm-inlet-55774.herokuapp.com',
+
+    schemes: ['https'],
+    default:['https']
   };
   const outputFile = './swagger_output.json'
 swaggerAutogen(outputFile,endpoints,doc)

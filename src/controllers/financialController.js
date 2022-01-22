@@ -61,7 +61,7 @@ module.exports = {
             
             if(userExists.length>=1 && userFinanceExists.length==0){
                const newFinance =  {
-                    "id": userFinanceId,
+                    "id": userFinanceId+1,
                     "userId": Number(userid),
                     "financialData": resultado
                 }

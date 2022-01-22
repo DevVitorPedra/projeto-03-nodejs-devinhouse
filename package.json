@@ -20,6 +20,7 @@
   "homepage": "https://github.com/DevVitorPedra/projeto-03-nodejs-devinhouse#readme",
   "dependencies": {
     "axios": "^0.25.0",
+    "cors": "^2.8.5",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "multer": "^1.4.4",
