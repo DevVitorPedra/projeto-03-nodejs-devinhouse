@@ -6,7 +6,7 @@
 > criação de dados em massa através da leitura de arquivo xlsx(excel),
 > calculo de informações de acordo com filtros, como mês e tipo de gastos
 
-### acesse o deploy no <a href="https://warm-inlet-55774.herokuapp.com/">Heroku</a>
+### acesse o deploy no <a href="https://warm-inlet-55774.herokuapp.com/" target="_blank" >Heroku</a>
 # Conta365
 ### Requisitos de desenvolvimento
 - [x] Aplicação com Node e Express
