@@ -17,7 +17,7 @@
           "finanças"
         ],
         "summary": "Retorna as despesas com ids",
-        "description": "Utilize o userid, para retornar as despesas do usuário com suas id. Retorna erro adequado caso o usuário não exista.",
+        "description": "Utilize o userid para retornar as despesas do usuário com suas id. Retorna erro adequado caso o usuário não exista.",
         "parameters": [
           {
             "name": "userid",
@@ -42,7 +42,7 @@
           "finanças"
         ],
         "summary": "Retorna as despesas com base no userid e queries",
-        "description": "Utilize o userid, para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.",
+        "description": "Utilize o userid para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.",
         "parameters": [
           {
             "name": "userid",

@@ -93,7 +93,7 @@ module.exports = {
         try {
             const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
 
-            if (userFinanceExists == '') throw new Error("Usuário inexistente")
+            if (userFinanceExists == '') throw new Error("Usuário não encontrado")
 
             const financeExists = userFinanceExists[0].financialData.filter((item) => item.id === Number(financeid))
 
@@ -122,7 +122,7 @@ module.exports = {
         let financesJson = getData('financial.json')
         try {
             const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
-            if (userFinanceExists == '') throw new Error("Usuário inexistente")
+            if (userFinanceExists.length === 0) throw new Error("Usuário não possui conta ainda")
             if (userFinanceExists[0].financialData.length === 0) throw new Error("Nenhuma despesa registrada")
             let fullBill = {
                 allExpenses: 0,
@@ -172,10 +172,13 @@ module.exports = {
        
         const { userid } = req.params
         let financesJson = getData('financial.json')
+   
         try {
             const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
-            if (userFinanceExists.length === 0) throw new Error("Usuário inexistente")
+          
+            if (userFinanceExists.length === 0) throw new Error("Usuário não possue conta ainda/usuário inexistente")
             if (userFinanceExists[0].financialData.length === 0) throw new Error("Nenhuma despesa registrada")
+            
             const result = userFinanceExists[0].financialData
             res.status(200).send({message:result})
         } catch (error) {
