@@ -3,27 +3,27 @@ const { getData, createOrUpdateData, findByUserId, translateMonth } = require('.
 
 module.exports = {
     async createDataByXlsxFile(req, res) {
-         /*
-          #swagger.tags = ["finanças"]
-          #swagger.summary = 'Cria uma conta365 e adiciona as finanças através dos dados do arquivo xlsx'
-          #swagger.description = 'Insira todos os dados de uma tabela excel em um usuário específico. A tabela deve conter os campos price, typeofexpenses, date e name. Nenhum campo pode estar vazio, ou retornará um erro.Caso o usuário existe mas não tenha registro de finanças será criado e inserido os dados do xlsx'
-          #swagger.consumes = ['multipart/form-data']  
-          #swagger.parameters['file'] = {
-              in: 'formData',
-              type: 'file',
-              required: 'true',
-              description: 'Arquivo xlsx(excel)',
-              accept: '/',
-        } */
+        /*
+         #swagger.tags = ["finanças"]
+         #swagger.summary = 'Cria uma conta365 e adiciona as finanças através dos dados do arquivo xlsx'
+         #swagger.description = 'Insira todos os dados de uma tabela excel em um usuário específico. A tabela deve conter os campos price, typeofexpenses, date e name. Nenhum campo pode estar vazio, ou retornará um erro.Caso o usuário existe mas não tenha registro de finanças será criado e inserido os dados do xlsx'
+         #swagger.consumes = ['multipart/form-data']  
+         #swagger.parameters['file'] = {
+             in: 'formData',
+             type: 'file',
+             required: 'true',
+             description: 'Arquivo xlsx(excel)',
+             accept: '/',
+       } */
         const { userid } = req.params
         let financesJson = getData('financial.json')
         const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
         let userJson = getData('users.json')
         console.log(userJson)
-        const userExists = userJson.filter((item)=> item.id === Number(userid))
+        const userExists = userJson.filter((item) => item.id === Number(userid))
         console.log(userExists)
         try {
-            if (userExists.length===0) throw new Error("Usuário inexistente")
+            if (userExists.length === 0) throw new Error("Usuário inexistente")
             const fileData = await xlsx.fromDataAsync(req.file.buffer)
             const rows = fileData.sheet(0).usedRange().value()
             const [firstRow] = rows
@@ -40,7 +40,7 @@ module.exports = {
             for (let i = 0; i < rows.length; i++) {
                 for (let j = 0; j < firstRow.length; j++) {
                     if (!rows[i][j]) throw new Error("Todas as colunas devem estar preenchidas")
-                    
+
                 }
             }
             let resultado = []
@@ -57,18 +57,18 @@ module.exports = {
                 newId++
             })
             let userFinanceId = financesJson.length
-            console.log(userExists.length,'here',userFinanceExists.length)
-            
-            if(userExists.length>=1 && userFinanceExists.length==0){
-               const newFinance =  {
-                    "id": userFinanceId+1,
+            console.log(userExists.length, 'here', userFinanceExists.length)
+
+            if (userExists.length >= 1 && userFinanceExists.length == 0) {
+                const newFinance = {
+                    "id": userFinanceId + 1,
                     "userId": Number(userid),
                     "financialData": resultado
                 }
                 financesJson.push(newFinance)
                 console.log(financesJson)
                 createOrUpdateData('financial.json', financesJson)
-               return res.status(200).send({message:newFinance})
+                return res.status(200).send({ message: newFinance })
             }
             let currentUser = findByUserId(userid, financesJson)
             let insertIntoFinance = currentUser.financialData.concat(resultado)
@@ -76,7 +76,7 @@ module.exports = {
             let index = financesJson.findIndex((item) => item.userId === userid)
             financesJson[index] = currentUser
             createOrUpdateData('financial.json', financesJson)
-            res.status(200).send({ message: currentUser})
+            res.status(200).send({ message: currentUser })
         } catch (error) {
             res.status(400).send({ message: error.message })
         }
@@ -115,8 +115,8 @@ module.exports = {
     },
     async totalexpenses(req, res) {
         //#swagger.tags = ["finanças"]
-       // #swagger.summary = 'Retorna as despesas com base no userid e queries'
-       // #swagger.description = 'Utilize o userid para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.'
+        // #swagger.summary = 'Retorna as despesas com base no userid e queries'
+        // #swagger.description = 'Utilize o userid para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.'
         const { userid } = req.params
         const { bymonthyear, expenses } = req.query
         let financesJson = getData('financial.json')
@@ -140,12 +140,12 @@ module.exports = {
             userFinanceExists[0].financialData.forEach(item => {
                 const d = new Date(item.date)
                 const month = translateMonth(d.getMonth())
-                if (fullBill.byMonthYear.hasOwnProperty(month+"/"+d.getFullYear())) {
+                if (fullBill.byMonthYear.hasOwnProperty(month + "/" + d.getFullYear())) {
                     fullBill.allExpenses += item.price
-                    fullBill.byMonthYear[month+"/"+d.getFullYear()] += item.price
+                    fullBill.byMonthYear[month + "/" + d.getFullYear()] += item.price
                 } else {
                     fullBill.allExpenses += item.price
-                    Object.assign(fullBill.byMonthYear, { [month+"/"+d.getFullYear()]: item.price })
+                    Object.assign(fullBill.byMonthYear, { [month + "/" + d.getFullYear()]: item.price })
                 }
             });
             if (bymonthyear) {
@@ -157,7 +157,7 @@ module.exports = {
             }
             if (expenses) {
                 const filtered = { [expenses]: fullBill.expensesByType[expenses] }
-                if(!filtered[expenses]) throw new Error("Nenhuma despesa com este tipo")
+                if (!filtered[expenses]) throw new Error("Nenhuma despesa com este tipo")
                 return res.status(200).send({ message: filtered })
             }
             res.status(200).send({ message: fullBill })
@@ -165,24 +165,24 @@ module.exports = {
             res.status(400).send({ message: error.message })
         }
     },
-    async allExpensesId(req,res){
-         //#swagger.tags = ["finanças"]
-       // #swagger.summary = 'Retorna as despesas com ids'
-       // #swagger.description = 'Utilize o userid para retornar as despesas do usuário com suas id. Retorna erro adequado caso o usuário não exista.'
-       
+    async allExpensesId(req, res) {
+        //#swagger.tags = ["finanças"]
+        // #swagger.summary = 'Retorna as despesas com ids'
+        // #swagger.description = 'Utilize o userid para retornar as despesas do usuário com suas id. Retorna erro adequado caso o usuário não exista.'
+
         const { userid } = req.params
         let financesJson = getData('financial.json')
-   
+
         try {
             const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
-          
+
             if (userFinanceExists.length === 0) throw new Error("Usuário não possue conta ainda/usuário inexistente")
             if (userFinanceExists[0].financialData.length === 0) throw new Error("Nenhuma despesa registrada")
-            
+
             const result = userFinanceExists[0].financialData
-            res.status(200).send({message:result})
+            res.status(200).send({ message: result })
         } catch (error) {
-            res.status(400).send({message:error.message})
+            res.status(400).send({ message: error.message })
         }
     }
 }
