@@ -116,7 +116,7 @@ module.exports = {
     async totalexpenses(req, res) {
         //#swagger.tags = ["finanças"]
        // #swagger.summary = 'Retorna as despesas com base no userid e queries'
-       // #swagger.description = 'Utilize o userid, para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.'
+       // #swagger.description = 'Utilize o userid para retornar as despesas do usuário, podendo usar uma das queries para retornar por mês/ano, Ex:Setembro/2022, ou por tipo, Ex:groceries, se as duas queries estiverem preenchidas retornará apenas por mês/ano. Retorna erro adequado caso o usuário não exista.'
         const { userid } = req.params
         const { bymonthyear, expenses } = req.query
         let financesJson = getData('financial.json')
@@ -163,6 +163,23 @@ module.exports = {
             res.status(200).send({ message: fullBill })
         } catch (error) {
             res.status(400).send({ message: error.message })
+        }
+    },
+    async allExpensesId(req,res){
+         //#swagger.tags = ["finanças"]
+       // #swagger.summary = 'Retorna as despesas com ids'
+       // #swagger.description = 'Utilize o userid para retornar as despesas do usuário com suas id. Retorna erro adequado caso o usuário não exista.'
+       
+        const { userid } = req.params
+        let financesJson = getData('financial.json')
+        try {
+            const userFinanceExists = financesJson.filter((item) => item.userId === Number(userid))
+            if (userFinanceExists.length === 0) throw new Error("Usuário inexistente")
+            if (userFinanceExists[0].financialData.length === 0) throw new Error("Nenhuma despesa registrada")
+            const result = userFinanceExists[0].financialData
+            res.status(200).send({message:result})
+        } catch (error) {
+            res.status(400).send({message:error.message})
         }
     }
 }
