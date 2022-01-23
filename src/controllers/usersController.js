@@ -90,7 +90,7 @@ module.exports = {
             }
             usersData.push(user)
             createOrUpdateData('users.json', usersData)
-            res.status(200).send({ message: usersData })
+            res.status(200).send({ message: usersData[usersData.length-1] })
         } catch (error) {
             res.status(400).send({ message: error.message })
         }
