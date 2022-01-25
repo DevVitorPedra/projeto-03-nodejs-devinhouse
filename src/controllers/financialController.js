@@ -97,7 +97,7 @@ module.exports = {
 
             const financeExists = userFinanceExists[0].financialData.filter((item) => item.id === Number(financeid))
 
-            if (financeExists == '') throw new Error("Pagamento inexistente")
+            if (financeExists == '') throw new Error("Despesa inexistente")
 
             const index = userFinanceExists[0].financialData.findIndex((item) => item.id === Number(financeid))
 
