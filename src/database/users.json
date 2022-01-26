@@ -1,1 +1,17 @@
-[{"id":1,"name":"Linus Torvalds","email":"linus@torvalds.lnx"},{"id":2,"name":"Ada Lovelace","email":"ada@lovelace.cod"},{"id":3,"name":"Aho Corasick","email":"aho@corasick.alg"},{"id":4,"name":"Vitor Pedra","email":"vitor@pedra.com"},{"id":5,"name":"Vitor Pedra","email":"vitor@pedra.com"},{"id":6,"name":"Vitor Pedra","email":"vitor@pedra.com"},{"id":7,"name":"Vitor Pedra","email":"vitor@pedra.com"},{"id":8,"name":"Vitor Pedra","email":"vi@pedra.com"}]
+[
+    {
+        "id": 1,
+        "name": "Linus Torvalds",
+        "email": "linus@torvalds.lnx"
+    },
+    {
+        "id": 2,
+        "name": "Ada Lovelace",
+        "email": "ada@lovelace.cod"
+    },
+    {
+        "id": 3,
+        "name": "Aho Corasick",
+        "email": "aho@corasick.alg"
+    }
+]

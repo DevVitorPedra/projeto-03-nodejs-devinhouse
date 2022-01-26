@@ -76,7 +76,7 @@ module.exports = {
         if (!name || !email) return res.status(400).send({ message: "Não deve existir campos em branco" })
         try {
             if (name) {
-                if ((!name.match(/^[a-z ,.'-]+$/i))) throw new Error('Nome deve conter apenas letras')
+                if ((!name.match(/^[a-zA-Záãç ,.'-]+$/i))) throw new Error('Nome deve conter apenas letras')
             }
             if (email) {
                 if ((!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))) throw new Error('Formato de email invalido')

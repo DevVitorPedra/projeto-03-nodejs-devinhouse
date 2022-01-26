@@ -9,8 +9,8 @@ const doc = {
   },
   //host: 'warm-inlet-55774.herokuapp.com',
   host: 'localhost:3333',
-  schemes: ['http'],
-  default: ['http']
+  schemes: ['http','https'],
+  default: ['https']
 };
 const outputFile = './swagger_output.json'
 swaggerAutogen(outputFile, endpoints, doc)
